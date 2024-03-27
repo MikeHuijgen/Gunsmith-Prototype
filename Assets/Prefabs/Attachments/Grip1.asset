@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56c718ef6f4726499b956992ac70cf4, type: 3}
   m_Name: Grip1
   m_EditorClassIdentifier: 
+  attachmentMesh: {fileID: 0}
