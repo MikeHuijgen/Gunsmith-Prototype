@@ -7,6 +7,31 @@ public class GunsmithSystem : MonoBehaviour
 {
     [SerializeField] private Canvas gunsmithCanvas;
     [SerializeField] private Canvas attachmentRowCanvas;
+    [SerializeField] private WeaponDataHolder[] weaponDataHolder;
+    
+    private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
+
+    [Serializable]
+    public struct  WeaponDataHolder
+    {
+        public string name;
+        public GunAttachmentData gunAttachmentData;
+    }
+
+    private void Awake()
+    {
+        AddDataToDictionary();
+    }
+
+    private void AddDataToDictionary()
+    {
+        _weaponDataDictionary = new Dictionary<string, GunAttachmentData>();
+
+        foreach (var weaponData in weaponDataHolder)
+        {
+            _weaponDataDictionary.Add(weaponData.name, weaponData.gunAttachmentData);
+        }
+    }
 
     public void EnableAttachmentCanvas()
     {
