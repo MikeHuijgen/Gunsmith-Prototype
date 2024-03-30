@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GunsmithSystem : MonoBehaviour
@@ -12,7 +13,6 @@ public class GunsmithSystem : MonoBehaviour
     private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
 
     private GunAttachmentData _selectedGunAttachmentData;
-    private string _selectedAttachmentCategory;
 
     [Serializable]
     public struct  WeaponDataHolder
@@ -45,5 +45,10 @@ public class GunsmithSystem : MonoBehaviour
 
         _weaponDataDictionary.TryGetValue(nameChild, out var foundData);
         _selectedGunAttachmentData = foundData;
+    }
+
+    public AttachmentCategory GetAttachmentsFromCategory(string category)
+    {
+        return _selectedGunAttachmentData.categories.FirstOrDefault(attachmentCategory => attachmentCategory.name.ToUpper() == category.ToUpper());
     }
 }

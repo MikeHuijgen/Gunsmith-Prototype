@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fabb505516b2134e8fd65f21af338e0, type: 3}
   m_Name: mp7GunAttachments
   m_EditorClassIdentifier: 
-  sights: []
-  barrels: []
-  muzzles: []
-  stocks: []
-  magazines: []
-  underBarrels: []
-  rearGrips: []
+  categories:
+  - name: sight
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: barrerl
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
