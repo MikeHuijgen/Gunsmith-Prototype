@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class GunsmithSystem : MonoBehaviour
 {
-    [SerializeField] private Canvas gunsmithCanvas;
-    [SerializeField] private Canvas attachmentRowCanvas;
+    [SerializeField] private GameObject gunsmithCanvas;
+    [SerializeField] private GameObject attachmentRowCanvas;
     [SerializeField] private WeaponDataHolder[] weaponDataHolder;
     
     private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
+
+    private GunAttachmentData _selectedGunAttachmentData;
+    private string _selectedAttachmentCategory;
 
     [Serializable]
     public struct  WeaponDataHolder
@@ -21,6 +24,7 @@ public class GunsmithSystem : MonoBehaviour
     private void Awake()
     {
         AddDataToDictionary();
+        SelectCurrentAttachmentData();
     }
 
     private void AddDataToDictionary()
@@ -33,15 +37,13 @@ public class GunsmithSystem : MonoBehaviour
         }
     }
 
-    public void EnableAttachmentCanvas()
+    private void SelectCurrentAttachmentData()
     {
-        attachmentRowCanvas.enabled = true;
-        gunsmithCanvas.enabled = false;
-    }
+        if (_weaponDataDictionary.Count <= 0) return;
 
-    public void EnableGunsmithCanvas()
-    {
-        gunsmithCanvas.enabled = true;
-        attachmentRowCanvas.enabled = false;
+        var nameChild = transform.GetChild(0).name;
+
+        _weaponDataDictionary.TryGetValue(nameChild, out var foundData);
+        _selectedGunAttachmentData = foundData;
     }
 }
