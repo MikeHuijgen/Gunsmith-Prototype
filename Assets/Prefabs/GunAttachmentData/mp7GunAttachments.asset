@@ -13,13 +13,43 @@ MonoBehaviour:
   m_Name: mp7GunAttachments
   m_EditorClassIdentifier: 
   categories:
-  - name: sight
+  - name: Sight
     attachments:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-  - name: barrerl
+  - name: Barrel
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: Stock
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: RearGrip
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: Magazine
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: UnderBarrel
+    attachments:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - name: Muzzle
     attachments:
     - {fileID: 0}
     - {fileID: 0}
