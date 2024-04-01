@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class AttachmentsUIHandler : MonoBehaviour
 {
-    [SerializeField] private GunsmithSystem gunsmithSystem;
     [SerializeField] private GameObject attachmentSlot;
     [SerializeField] private GameObject attachmentHolder;
     
@@ -26,7 +25,7 @@ public class AttachmentsUIHandler : MonoBehaviour
     public void SetSelectedAttachmentCategory(string category)
     {
         _selectedCategory = category;
-        _attachmentCategory = gunsmithSystem.GetAttachmentsFromCategory(_selectedCategory);
+        _attachmentCategory = GunsmithSystem.Instance.GetAttachmentsFromCategory(_selectedCategory);
         SetUpAttachmentSlots();
     }
 

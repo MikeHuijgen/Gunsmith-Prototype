@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunsmithSystem : MonoBehaviour
@@ -14,6 +15,11 @@ public class GunsmithSystem : MonoBehaviour
 
     private GunAttachmentData _selectedGunAttachmentData;
 
+    private static GunsmithSystem _instance;
+
+    public static GunsmithSystem Instance => _instance;
+
+
     [Serializable]
     public struct  WeaponDataHolder
     {
@@ -23,6 +29,14 @@ public class GunsmithSystem : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
         AddDataToDictionary();
         SelectCurrentAttachmentData();
     }
