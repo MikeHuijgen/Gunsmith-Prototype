@@ -15,7 +15,8 @@ public class AttachmentsUIHandler : MonoBehaviour
     private string _selectedCategory;
     private AttachmentCategory _attachmentCategory;
     private List<GameObject> _attachmentSlotsPool;
-    private int poolSize = 20;
+    private int _poolSize = 20;
+    private GameObject _selectedAttachment;
 
     private void Awake()
     {
@@ -32,11 +33,12 @@ public class AttachmentsUIHandler : MonoBehaviour
     private void FillPool()
     {
         _attachmentSlotsPool = new List<GameObject>();
-        for (var i = 0; i < poolSize; i++)
+        for (var i = 0; i < _poolSize; i++)
         {
             var newAttachmentSlot = Instantiate(attachmentSlot, attachmentHolder.transform);
             newAttachmentSlot.SetActive(false);
             _attachmentSlotsPool.Add(newAttachmentSlot);
+            newAttachmentSlot.GetComponent<AttachmentButtonID>().ClickedOnAttachment += newFun;
         }
     }
 
@@ -54,9 +56,19 @@ public class AttachmentsUIHandler : MonoBehaviour
 
         for (var i = 0; i < attachmentSlotAmount; i++)
         {
-            if (_attachmentSlotsPool[i].activeInHierarchy) continue;
+            if (_attachmentSlotsPool[i].activeInHierarchy || _attachmentCategory.attachments[i] == null) continue;
+            _attachmentSlotsPool[i].GetComponentInChildren<TMP_Text>().text = _attachmentCategory.attachments[i].name;
             _attachmentSlotsPool[i].SetActive(true);
         }
     }
-    
+
+    private void newFun(string attachmentName)
+    {
+        foreach (var attachment in _attachmentCategory.attachments)
+        {
+            if (attachment.name != attachmentName) continue;
+            _selectedAttachment = attachment.attachmentMesh;
+        }
+        GunsmithSystem.Instance.AttachAttachment(_selectedAttachment, _selectedCategory);
+    }
 }
