@@ -79,45 +79,32 @@ public class GunsmithSystem : MonoBehaviour
         switch (category)
         {
             case "STOCK":
-                if (stockAttachPoint.transform.childCount > 0)
-                {
-                    var oldAttachment = stockAttachPoint.transform.GetChild(0).gameObject;
-                    Destroy(oldAttachment);
-                }
+                DeleteOldAttachment(stockAttachPoint.transform);
                 Instantiate(attachment, stockAttachPoint.transform);
                 break;
             case "REARGRIP":
-                if (rearGripAttachPoint.transform.childCount > 0)
-                {
-                    var oldAttachment = rearGripAttachPoint.transform.GetChild(0).gameObject;
-                    Destroy(oldAttachment);
-                }
+                DeleteOldAttachment(rearGripAttachPoint.transform);
                 Instantiate(attachment, rearGripAttachPoint.transform);
                 break;
             case "BARREL":
-                if (barrelAttachPoint.transform.childCount > 0)
-                {
-                    var oldAttachment = barrelAttachPoint.transform.GetChild(0).gameObject;
-                    Destroy(oldAttachment);
-                }
+                DeleteOldAttachment(barrelAttachPoint.transform);
                 Instantiate(attachment, barrelAttachPoint.transform);
                 break;
             case "SIGHT":
-                if (sightAttachPoint.transform.childCount > 0)
-                {
-                    var oldAttachment = sightAttachPoint.transform.GetChild(0).gameObject;
-                    Destroy(oldAttachment);
-                }
+                DeleteOldAttachment(sightAttachPoint.transform);
                 Instantiate(attachment, sightAttachPoint.transform);
                 break;
             case "MAGAZINE":
-                if (magazineAttachPoint.transform.childCount > 0)
-                {
-                    var oldAttachment = magazineAttachPoint.transform.GetChild(0).gameObject;
-                    Destroy(oldAttachment);
-                }
+                DeleteOldAttachment(magazineAttachPoint.transform);
                 Instantiate(attachment, magazineAttachPoint.transform);
                 break;
         }
+    }
+
+    private static void DeleteOldAttachment(Transform targetTransform)
+    {
+        if (targetTransform.childCount <= 0) return;
+        var oldAttachment = targetTransform.GetChild(0).gameObject;
+        Destroy(oldAttachment);
     }
 }
