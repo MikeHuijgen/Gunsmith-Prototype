@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56c718ef6f4726499b956992ac70cf4, type: 3}
-  m_Name: FoldStock
+  m_Name: DefaultMagazine
   m_EditorClassIdentifier: 
-  attachmentMesh: {fileID: 0}
+  attachmentMesh: {fileID: 213257996544100029, guid: de057d3781f96cf4997de01b62e131aa,
+    type: 3}

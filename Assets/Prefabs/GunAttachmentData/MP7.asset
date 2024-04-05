@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fabb505516b2134e8fd65f21af338e0, type: 3}
+  m_Name: MP7
+  m_EditorClassIdentifier: 
+  categories:
+  - name: Stock
+    attachments:
+    - {fileID: 11400000, guid: 9cd05db2530172849b69a7d463f611bc, type: 2}
+    - {fileID: 11400000, guid: e67b2d6798054f446aebe4fa012784f3, type: 2}
+  - name: Sight
+    attachments:
+    - {fileID: 11400000, guid: 8d09d268503f7ca4396210b4cfe9f150, type: 2}
+  - name: Barrel
+    attachments:
+    - {fileID: 11400000, guid: 48137fe88e0350348afb2a63660560fa, type: 2}
+  - name: Magazine
+    attachments:
+    - {fileID: 11400000, guid: dee8eb594067fdf4a9a85db58afee0be, type: 2}
+  - name: RearGrip
+    attachments:
+    - {fileID: 11400000, guid: 0c8fa6309d1b60b4dbb4e480b9f58018, type: 2}

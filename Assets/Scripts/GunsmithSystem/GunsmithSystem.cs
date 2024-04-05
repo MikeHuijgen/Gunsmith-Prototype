@@ -13,6 +13,10 @@ public class GunsmithSystem : MonoBehaviour
 
     [Header("attach points")] 
     [SerializeField] private GameObject stockAttachPoint;
+    [SerializeField] private GameObject rearGripAttachPoint;
+    [SerializeField] private GameObject sightAttachPoint;
+    [SerializeField] private GameObject barrelAttachPoint;
+    [SerializeField] private GameObject magazineAttachPoint;
     
     private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
 
@@ -81,6 +85,38 @@ public class GunsmithSystem : MonoBehaviour
                     Destroy(oldAttachment);
                 }
                 Instantiate(attachment, stockAttachPoint.transform);
+                break;
+            case "REARGRIP":
+                if (rearGripAttachPoint.transform.childCount > 0)
+                {
+                    var oldAttachment = rearGripAttachPoint.transform.GetChild(0).gameObject;
+                    Destroy(oldAttachment);
+                }
+                Instantiate(attachment, rearGripAttachPoint.transform);
+                break;
+            case "BARREL":
+                if (barrelAttachPoint.transform.childCount > 0)
+                {
+                    var oldAttachment = barrelAttachPoint.transform.GetChild(0).gameObject;
+                    Destroy(oldAttachment);
+                }
+                Instantiate(attachment, barrelAttachPoint.transform);
+                break;
+            case "SIGHT":
+                if (sightAttachPoint.transform.childCount > 0)
+                {
+                    var oldAttachment = sightAttachPoint.transform.GetChild(0).gameObject;
+                    Destroy(oldAttachment);
+                }
+                Instantiate(attachment, sightAttachPoint.transform);
+                break;
+            case "MAGAZINE":
+                if (magazineAttachPoint.transform.childCount > 0)
+                {
+                    var oldAttachment = magazineAttachPoint.transform.GetChild(0).gameObject;
+                    Destroy(oldAttachment);
+                }
+                Instantiate(attachment, magazineAttachPoint.transform);
                 break;
         }
     }

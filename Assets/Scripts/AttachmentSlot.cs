@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AttachmentButtonID : MonoBehaviour
+public class AttachmentSlot : MonoBehaviour
 {
     public Action<string> ClickedOnAttachment;
     private TMP_Text _buttonText;
@@ -13,6 +13,10 @@ public class AttachmentButtonID : MonoBehaviour
     private void Awake()
     {
         GetComponent<Button>().onClick.AddListener(CLickedOnButton);
+    }
+
+    private void OnEnable()
+    {
         _buttonText = GetComponentInChildren<TMP_Text>();
     }
 

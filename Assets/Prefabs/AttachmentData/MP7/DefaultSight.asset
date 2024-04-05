@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56c718ef6f4726499b956992ac70cf4, type: 3}
-  m_Name: ARStock
+  m_Name: DefaultSight
   m_EditorClassIdentifier: 
-  attachmentMesh: {fileID: 8029221690613058459, guid: 170e65f84ab0f2d4b879259c9ff10be9,
+  attachmentMesh: {fileID: 2156235163027998171, guid: c8d5e83aa346eec4fb77deb8bf0b4d72,
     type: 3}

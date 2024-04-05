@@ -38,7 +38,7 @@ public class AttachmentsUIHandler : MonoBehaviour
             var newAttachmentSlot = Instantiate(attachmentSlot, attachmentHolder.transform);
             newAttachmentSlot.SetActive(false);
             _attachmentSlotsPool.Add(newAttachmentSlot);
-            newAttachmentSlot.GetComponent<AttachmentButtonID>().ClickedOnAttachment += newFun;
+            newAttachmentSlot.GetComponent<AttachmentSlot>().ClickedOnAttachment += newFun;
         }
     }
 
@@ -70,5 +70,6 @@ public class AttachmentsUIHandler : MonoBehaviour
             _selectedAttachment = attachment.attachmentMesh;
         }
         GunsmithSystem.Instance.AttachAttachment(_selectedAttachment, _selectedCategory);
+        print(_selectedCategory);
     }
 }
