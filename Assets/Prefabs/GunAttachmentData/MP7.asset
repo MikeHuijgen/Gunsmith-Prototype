@@ -23,9 +23,13 @@ MonoBehaviour:
   - name: Barrel
     attachments:
     - {fileID: 11400000, guid: 48137fe88e0350348afb2a63660560fa, type: 2}
+    - {fileID: 11400000, guid: 8768437cfc944e147b705edcf7c65c47, type: 2}
   - name: Magazine
     attachments:
     - {fileID: 11400000, guid: dee8eb594067fdf4a9a85db58afee0be, type: 2}
   - name: RearGrip
     attachments:
     - {fileID: 11400000, guid: 0c8fa6309d1b60b4dbb4e480b9f58018, type: 2}
+  - name: Muzzle
+    attachments:
+    - {fileID: 11400000, guid: 6c6949e091fa4ae4d852f7d863ac14bb, type: 2}

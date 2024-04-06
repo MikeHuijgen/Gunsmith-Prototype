@@ -17,6 +17,7 @@ public class GunsmithSystem : MonoBehaviour
     [SerializeField] private GameObject sightAttachPoint;
     [SerializeField] private GameObject barrelAttachPoint;
     [SerializeField] private GameObject magazineAttachPoint;
+    [SerializeField]private GameObject _muzzleAttachPoint;
     
     private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
 
@@ -80,23 +81,29 @@ public class GunsmithSystem : MonoBehaviour
         {
             case "STOCK":
                 DeleteOldAttachment(stockAttachPoint.transform);
-                Instantiate(attachment, stockAttachPoint.transform);
+                InstantiateNewAttachment(attachment, stockAttachPoint.transform);
                 break;
             case "REARGRIP":
                 DeleteOldAttachment(rearGripAttachPoint.transform);
-                Instantiate(attachment, rearGripAttachPoint.transform);
+                InstantiateNewAttachment(attachment, rearGripAttachPoint.transform);
                 break;
             case "BARREL":
+                var currentMuzzle = GetCurrentMuzzle();
                 DeleteOldAttachment(barrelAttachPoint.transform);
-                Instantiate(attachment, barrelAttachPoint.transform);
+                var newBarrel = InstantiateNewAttachment(attachment, barrelAttachPoint.transform);
+                UpdateMuzzleAttachPoint(newBarrel, currentMuzzle);
                 break;
             case "SIGHT":
                 DeleteOldAttachment(sightAttachPoint.transform);
-                Instantiate(attachment, sightAttachPoint.transform);
+                InstantiateNewAttachment(attachment, sightAttachPoint.transform);
                 break;
             case "MAGAZINE":
                 DeleteOldAttachment(magazineAttachPoint.transform);
-                Instantiate(attachment, magazineAttachPoint.transform);
+                InstantiateNewAttachment(attachment, magazineAttachPoint.transform);
+                break;
+            case "MUZZLE":
+                DeleteOldAttachment(_muzzleAttachPoint.transform);
+                InstantiateNewAttachment(attachment, _muzzleAttachPoint.transform);
                 break;
         }
     }
@@ -106,5 +113,23 @@ public class GunsmithSystem : MonoBehaviour
         if (targetTransform.childCount <= 0) return;
         var oldAttachment = targetTransform.GetChild(0).gameObject;
         Destroy(oldAttachment);
+    }
+
+    private static GameObject InstantiateNewAttachment(GameObject newAttachment, Transform targetTransform)
+    {
+        return Instantiate(newAttachment, targetTransform);
+    }
+
+    private void UpdateMuzzleAttachPoint(GameObject newBarrel, GameObject muzzle)
+    {
+        _muzzleAttachPoint = newBarrel.transform.GetChild(0).gameObject;
+        if (muzzle == null) return;
+        InstantiateNewAttachment(muzzle, _muzzleAttachPoint.transform);
+    }
+
+    private GameObject GetCurrentMuzzle()
+    {
+        if (_muzzleAttachPoint == null || _muzzleAttachPoint.transform.childCount <= 0) return null;
+        return _muzzleAttachPoint.transform.GetChild(0).gameObject;
     }
 }

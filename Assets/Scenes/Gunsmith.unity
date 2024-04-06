@@ -434,6 +434,7 @@ MonoBehaviour:
   sightAttachPoint: {fileID: 1435115560}
   barrelAttachPoint: {fileID: 654750407}
   magazineAttachPoint: {fileID: 1568925691}
+  _muzzleAttachPoint: {fileID: 0}
 --- !u!1 &654750407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1909856461297501430, guid: 7f49cdc57a5fa4848b102d494f06eed9,
