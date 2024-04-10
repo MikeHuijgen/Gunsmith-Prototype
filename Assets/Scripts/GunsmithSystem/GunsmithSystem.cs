@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class GunsmithSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject gunsmithCanvas;
-    [SerializeField] private GameObject attachmentRowCanvas;
     [SerializeField] private WeaponDataHolder[] weaponDataHolder;
 
     [Header("attach points")] 
@@ -17,7 +15,8 @@ public class GunsmithSystem : MonoBehaviour
     [SerializeField] private GameObject sightAttachPoint;
     [SerializeField] private GameObject barrelAttachPoint;
     [SerializeField] private GameObject magazineAttachPoint;
-    [SerializeField]private GameObject _muzzleAttachPoint;
+    [SerializeField] private GameObject underBarrelAttachPoint;
+    [SerializeField] private GameObject muzzleAttachPoint;
     
     private Dictionary<string, GunAttachmentData> _weaponDataDictionary;
 
@@ -74,7 +73,7 @@ public class GunsmithSystem : MonoBehaviour
         return _selectedGunAttachmentData.categories.FirstOrDefault(attachmentCategory => attachmentCategory.name.ToUpper() == category.ToUpper());
     }
 
-    public void AttachAttachment(GameObject attachment, string category)
+    public void AttachNewAttachment(GameObject attachment, string category)
     {
         category = category.ToUpper();
         switch (category)
@@ -102,8 +101,12 @@ public class GunsmithSystem : MonoBehaviour
                 InstantiateNewAttachment(attachment, magazineAttachPoint.transform);
                 break;
             case "MUZZLE":
-                DeleteOldAttachment(_muzzleAttachPoint.transform);
-                InstantiateNewAttachment(attachment, _muzzleAttachPoint.transform);
+                DeleteOldAttachment(muzzleAttachPoint.transform);
+                InstantiateNewAttachment(attachment, muzzleAttachPoint.transform);
+                break;
+            case "UNDERBARREL":
+                DeleteOldAttachment(underBarrelAttachPoint.transform);
+                InstantiateNewAttachment(attachment, underBarrelAttachPoint.transform);
                 break;
         }
     }
@@ -122,14 +125,14 @@ public class GunsmithSystem : MonoBehaviour
 
     private void UpdateMuzzleAttachPoint(GameObject newBarrel, GameObject muzzle)
     {
-        _muzzleAttachPoint = newBarrel.transform.GetChild(0).gameObject;
+        muzzleAttachPoint = newBarrel.transform.GetChild(0).gameObject;
         if (muzzle == null) return;
-        InstantiateNewAttachment(muzzle, _muzzleAttachPoint.transform);
+        InstantiateNewAttachment(muzzle, muzzleAttachPoint.transform);
     }
 
     private GameObject GetCurrentMuzzle()
     {
-        if (_muzzleAttachPoint == null || _muzzleAttachPoint.transform.childCount <= 0) return null;
-        return _muzzleAttachPoint.transform.GetChild(0).gameObject;
+        if (muzzleAttachPoint == null || muzzleAttachPoint.transform.childCount <= 0) return null;
+        return muzzleAttachPoint.transform.GetChild(0).gameObject;
     }
 }

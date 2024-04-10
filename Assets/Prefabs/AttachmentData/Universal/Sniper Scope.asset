@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56c718ef6f4726499b956992ac70cf4, type: 3}
-  m_Name: FoldStock
+  m_Name: Sniper Scope
   m_EditorClassIdentifier: 
-  attachmentMesh: {fileID: 223213889279282843, guid: 19dae71614575c648a4cb8d93436eb57,
+  attachmentMesh: {fileID: 5116876401843900281, guid: 25e05253b1eccaa41b6e9e6168d2ef2a,
     type: 3}

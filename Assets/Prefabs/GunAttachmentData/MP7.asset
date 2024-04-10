@@ -16,10 +16,12 @@ MonoBehaviour:
   - name: Stock
     attachments:
     - {fileID: 11400000, guid: 9cd05db2530172849b69a7d463f611bc, type: 2}
-    - {fileID: 11400000, guid: e67b2d6798054f446aebe4fa012784f3, type: 2}
+    - {fileID: 11400000, guid: 5acba61e311ccbf4ba19dba3a8ee8ba3, type: 2}
   - name: Sight
     attachments:
     - {fileID: 11400000, guid: 8d09d268503f7ca4396210b4cfe9f150, type: 2}
+    - {fileID: 11400000, guid: 66d145e187f7eb346a2db3c28bcaa0bf, type: 2}
+    - {fileID: 11400000, guid: 041bcc3be0e6f1f48a3753ba06ad8353, type: 2}
   - name: Barrel
     attachments:
     - {fileID: 11400000, guid: 48137fe88e0350348afb2a63660560fa, type: 2}
@@ -27,9 +29,15 @@ MonoBehaviour:
   - name: Magazine
     attachments:
     - {fileID: 11400000, guid: dee8eb594067fdf4a9a85db58afee0be, type: 2}
+    - {fileID: 11400000, guid: 0e94c97654e97134c87356d00372940e, type: 2}
+    - {fileID: 11400000, guid: 0e69250f5cb2eb5459b15e85dce365ff, type: 2}
   - name: RearGrip
     attachments:
     - {fileID: 11400000, guid: 0c8fa6309d1b60b4dbb4e480b9f58018, type: 2}
   - name: Muzzle
     attachments:
     - {fileID: 11400000, guid: 6c6949e091fa4ae4d852f7d863ac14bb, type: 2}
+  - name: UnderBarrel
+    attachments:
+    - {fileID: 11400000, guid: 3483f8ebb3828004c9ec4658cc9c037c, type: 2}
+    - {fileID: 11400000, guid: 331d87ae9f1d88b41abd53cca971f8e3, type: 2}
